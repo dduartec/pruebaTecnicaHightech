@@ -3,9 +3,7 @@ package Service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import Model.CreditCard;
@@ -14,7 +12,6 @@ import Model.DatabaseConnection;
 public class CreditCardService {
 
 	private DatabaseConnection dbCon = new DatabaseConnection();
-	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 

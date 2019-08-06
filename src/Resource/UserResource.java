@@ -6,10 +6,8 @@ import Service.UserService;
 import Model.CreditCard;
 import Model.User;
 
-import javax.ejb.EJB;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -17,11 +15,9 @@ import javax.ws.rs.core.UriInfo;
 import com.google.gson.Gson;
 
 import javax.ws.rs.core.Response.ResponseBuilder;
-import javax.ws.rs.core.UriBuilder;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Path("/user")
@@ -32,13 +28,10 @@ public class UserResource {
 	@Context
 	private UriInfo uriInfo;
 
-	@EJB
 	private UserService userService = new UserService();
 
-	@EJB
 	private AuthService authService =  new AuthService();
 	
-	@EJB
 	private CreditCardService creditCardService =  new CreditCardService();
 
 	@GET
@@ -56,10 +49,6 @@ public class UserResource {
 			String json = builder.toJson(e.getMessage());
 		    return json;
 		}        
-	    System.out.println(users.toString());
-	    // Convert to GenericEntity and return in response    
-	    GenericEntity<List<User>> entities = new GenericEntity<List<User>>(users){};
-	    //return users.toString();
 	    String json = builder.toJson(users);
 	    return json;
 	}
